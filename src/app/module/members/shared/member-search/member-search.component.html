@@ -1,0 +1,17 @@
+<div class="search-container">
+    <form class="search-form" [formGroup]="searchForm" (ngSubmit)="submitMemberSearchForm()" #resetSearchForm="ngForm"
+        novalidate>
+        <mat-label class="my-label">Member Number</mat-label>
+        <div class="search-part">
+        <mat-form-field appearance="outline">
+            <mat-icon matPrefix>search</mat-icon>
+            <input matInput mask="0000" placeholder="Enter member number" id="memberNumber"
+                formControlName="memberNumber">
+            <!--<mat-error *ngIf="handleError('memberNumber', 'required')">
+                            Please provide a member number to search
+                        </mat-error>-->
+        </mat-form-field>
+        <button class="actionBtn" mat-flat-button><span>Search</span></button>
+    </div>
+    </form>
+</div>

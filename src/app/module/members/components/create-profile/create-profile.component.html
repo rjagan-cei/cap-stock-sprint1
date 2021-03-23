@@ -1,0 +1,108 @@
+<!-- Title group  -->
+<mat-toolbar>
+    <span>Create Member Profile</span>
+    <!--<div class="example-action-buttons">
+        <button mat-button (click)="toggleAccordionPanel(accordionAction)">{{accordionAction}}</button>
+    </div>-->
+</mat-toolbar>
+
+<!-- Form -->
+<mat-card>
+    <mat-card-content>
+        <!-- Member search form -->
+        <app-member-search></app-member-search>
+        <form class="my-form" [formGroup]="memberForm" (ngSubmit)="submitMemberForm()" #resetMemberForm="ngForm"
+            novalidate>
+            <mat-label class="my-label">Member Name</mat-label>
+            <mat-form-field appearance="outline" class="disabled-input">
+                <input matInput type="text" placeholder="Enter member name" id="memberName"
+                    formControlName="memberName">
+                <!--<mat-error *ngIf="handleError('memberName', 'required')">
+                    Please provide a member name
+                </mat-error>-->
+            </mat-form-field>
+
+            <mat-label class="my-label">Status</mat-label>
+            <mat-form-field appearance="outline" class="disabled-input">
+                <mat-select placeholder="Select" id="status" formControlName="status">
+                    <mat-option [value]="statusArray.name" *ngFor="let statusArray of StatusArray">
+                        {{statusArray.name}}
+                    </mat-option>
+                </mat-select>
+                <!--<mat-error *ngIf="handleError('status', 'required')">
+                Please select a status</strong>
+              </mat-error>-->
+            </mat-form-field>
+
+            <mat-label class="my-label">Stock Membership Date</mat-label>
+            <mat-form-field appearance="outline" class="disabled-input">
+                <input matInput readonly [matDatepicker]="stockMembershipDatePicker" id="stockMembershipDate"
+                    placeholder="mm/dd/yyyy" formControlName="stockMembershipDate"
+                    (dateChange)="formatDate('stockMembershipDate', $event)">
+                <mat-datepicker-toggle matSuffix [for]="stockMembershipDatePicker"></mat-datepicker-toggle>
+                <mat-datepicker #stockMembershipDatePicker></mat-datepicker>
+                <!--<mat-error *ngIf="handleError('stockMembershipDate', 'required')">
+                  Pending stock asset date is required
+                </mat-error>-->
+            </mat-form-field>
+
+            <mat-label class="my-label">Financial Data Date:</mat-label>
+            <mat-form-field appearance="outline" class="disabled-input">
+                <input matInput [matDatepicker]="financialDataDatePicker" id="financialDataDate"
+                    placeholder="mm/dd/yyyy" formControlName="financialDataDate"
+                    (dateChange)="formatDate('financialDataDate', $event)">
+                <mat-datepicker-toggle matSuffix [for]="financialDataDatePicker"></mat-datepicker-toggle>
+                <mat-datepicker #financialDataDatePicker></mat-datepicker>
+                <!--<mat-error *ngIf="handleError('financialDataDate', 'required')">
+                  Member stock asset date is required
+                </mat-error>-->
+            </mat-form-field>
+
+            <mat-label class="my-label">Total Assets</mat-label>
+            <mat-form-field appearance="outline" class="disabled-input">
+                <input matInput mask="separator.2" prefix="$" placeholder="0.00" thousandSeparator=","
+                    separatorLimit="1000000000" id="totalAssets" formControlName="totalAssets" />
+                <!--<mat-error *ngIf="handleError('totalAssets', 'required')">
+                  Please provide total assets
+                </mat-error>-->
+            </mat-form-field>
+
+            <mat-label class="my-label">Elected Assets</mat-label>
+            <mat-form-field appearance="outline" class="disabled-input">
+                <input matInput mask="separator.2" prefix="$" thousandSeparator="," separatorLimit="1000000000"
+                    placeholder="0.00" id="electedAssets" formControlName="electedAssets" />
+                <!--<mat-error *ngIf="handleError('electedAssets', 'required')">
+                  Please provide elected assets
+                </mat-error>-->
+            </mat-form-field>
+
+            <mat-label class="my-label">Membership Repurchase Flag</mat-label>
+            <input class="label-field" matInput id="membershipRepurchaseFlag"
+                formControlName="membershipRepurchaseFlag" /><br /><br />
+
+            <mat-label class="my-label">Membership Redemption Flag</mat-label>
+            <input matInput id="membershipRedemptionFlag" formControlName="membershipRedemptionFlag" /><br /><br />
+
+            <mat-label class="my-label">Activity Repurchase Flag</mat-label>
+            <input matInput id="activityRepurchaseFlag" formControlName="activityRepurchaseFlag" /><br /><br />
+
+            <mat-label class="my-label">Activity Redemption Flag</mat-label>
+            <input matInput id="activityRedemptionFlag" formControlName="activityRedemptionFlag" /><br /><br />
+
+            <mat-label class="my-label">Activity Account</mat-label>
+            <input matInput id="activityAccount" formControlName="activityAccount" /><br /><br />
+
+            <mat-label class="my-label">Dividend Account</mat-label>
+            <input matInput id="dividendAccount" formControlName="dividendAccount" /><br /><br />
+
+            <mat-label class="my-label">DDA Account</mat-label>
+            <input matInput id="ddaAccount" formControlName="ddaAccount" /><br /><br />
+
+            <mat-card-actions>
+                <button class="actionBtn" mat-flat-button><span>Save</span></button>
+                <span class="button-spacer"></span>
+                <button class="cancelBtn" mat-flat-button (click)="this.resetForm.reset()"><span>Cancel</span></button>
+            </mat-card-actions>
+        </form>
+    </mat-card-content>
+</mat-card>
