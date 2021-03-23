@@ -1,0 +1,53 @@
+.img3 {
+	margin: 43% !important;
+    width: 119px;
+    height: 152px;
+}
+.footer {
+	left: 0%;
+	right: 0%;
+	top: 0%;
+	bottom: 0%;
+	background: #71645C;
+	display: flex;
+	flex-direction: column;
+	width: auto;
+	height: 285px;
+}
+.logo_addresses {
+    display: flex;;
+}
+.footer p {
+    padding: 20% 0% 0% 0%;
+    color: #FFFFFF;
+    font-family: Roboto;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 16px;
+    letter-spacing: -0.356331px;
+}
+.address-title {
+    letter-spacing: 0.643669px;
+}
+a.location-details {
+    color: #FFFFFF;
+    font-family: Roboto;
+    text-decoration-line: underline;
+}
+.copyright {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    color: #FFFFFF;
+    margin-left: 24%;
+    margin-top: 50px;
+}
+.copyright a::link {
+    color: #FFFFFF;
+    font-family: Roboto;
+}
+.item {
+    display: flex;
+    flex-direction: row;
+    width: 17%;
+}
