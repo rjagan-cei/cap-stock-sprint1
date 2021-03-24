@@ -1,0 +1,77 @@
+<mat-toolbar class="mat-toolbar mat-toolbar-single-row">
+    <span>View Member Profile</span>
+</mat-toolbar>
+
+<!-- Form -->
+<mat-card>
+    <mat-card-content>
+        <!-- Member search form -->
+        <app-member-search></app-member-search>
+        <div class="property-holder">
+            <mat-label class="capital-stock-form-label">Member Number:</mat-label>
+            <div class="view-field" matInput id="memberName"> 001234 </div>
+        </div>
+        <div class="property-holder">
+            <mat-label class="capital-stock-form-label">Member Name:</mat-label>
+            <div class="view-field" matInput id="memberName"> Acme Credit Union </div>
+        </div>
+        <div class="property-holder">
+            <mat-label class="capital-stock-form-label">Status Code:</mat-label>
+            <div class="view-field" matInput id="statusCode"> Active </div>
+        </div>
+        <div class="property-holder">
+            <mat-label class="capital-stock-form-label">Status Type:</mat-label>
+            <div class="view-field" matInput id="statusType"> Pending </div>
+        </div>
+        <div class="property-holder">
+            <mat-label class="capital-stock-form-label">Initial Stock Purchase Required:</mat-label>
+            <div class="view-field" matInput id="initialStockPurchaseRequired"> Yes </div>
+        </div>
+        <div class="property-holder">
+            <mat-label class="capital-stock-form-label">Capital Stock Asset::</mat-label>
+            <div class="view-field" matInput id="capitalStockAsset"> 03/21/2021 </div>
+        </div>
+        <div class="property-holder">
+            <mat-label class="capital-stock-form-label">Capital Stock Asset Date::</mat-label>
+            <div class="view-field" matInput id="capitalStockAssetDate"> 03/21/2021 </div>
+        </div>
+        <div class="property-holder">
+            <mat-label class="capital-stock-form-label">Pending Stock Asset:</mat-label>
+            <div class="view-field" matInput id="pendingStockAsset"> $ 2,110,000,000.00 </div>
+        </div>
+        <div class="property-holder">
+            <mat-label class="capital-stock-form-label">Pending Stock Asset Date:</mat-label>
+            <div class="view-field" matInput id="pendingStockAssetDate"> 03/21/2021 </div>
+        </div>
+        <div class="property-holder">
+            <mat-label class="capital-stock-form-label">Member Stock Asset Date:</mat-label>
+            <div class="view-field" matInput id="memberStockAssetDate"> 03/21/2021 </div>
+        </div>
+        <div class="property-holder">
+            <mat-label class="capital-stock-form-label">Member DDA Account:</mat-label>
+            <div class="view-field" matInput id="memberDdaAccount">001235 000 010 100 11</div>
+        </div>
+        <div class="property-holder">
+            <mat-label class="capital-stock-form-label">MRCS (Mandatory Redeemable Classified Stock):</mat-label>
+            <div class="view-field" matInput id="mrcs">$ 1,225,000,000.00 </div>
+        </div>
+        <div class="property-holder">
+            <mat-label class="capital-stock-form-label">MRCS Input Date:</mat-label>
+            <div class="view-field" matInput id="mrcsInputDate"> 03/21/2021 </div>
+        </div>
+        <div class="property-holder">
+            <mat-label class="capital-stock-form-label">MRCS Redemption Date:</mat-label>
+            <div class="view-field" matInput id="mrcsRedemptionDate"> 03/21/2021 </div>
+        </div>
+        <div class="property-holder">
+            <mat-label class="capital-stock-form-label">Membership Stock Maximum Requirement:</mat-label>
+            <div class="view-field" matInput id="memberStockMaxRequirement"> 001235 000 010 100 11 </div>
+        </div>
+        <!-- <mat-card-actions>
+                <button class="actionBtn" mat-flat-button><span>Save</span></button>
+                <span class="button-spacer"></span>
+                <button class="cancelBtn" mat-flat-button (click)="this.resetForm.reset()"><span>Cancel</span></button>
+            </mat-card-actions> -->
+
+    </mat-card-content>
+</mat-card>

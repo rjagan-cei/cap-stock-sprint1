@@ -79,3 +79,52 @@ mat-expansion-panel-header#mat-expansion-panel-header-4 {
 .disabled-input.mat-form-field-appearance-outline .mat-form-field-outline {
     background-color: #f2f0ef;
 }
+.mat-badge-medium .mat-badge-content {
+    width: 14px;
+    height: 14px;
+    line-height: 14px;
+    top: 1px !important;
+    font-size: 8px;
+}
+.disabled-input.mat-form-field-appearance-outline .mat-form-field-prefix, .mat-form-field-appearance-outline .mat-form-field-suffix {
+    top: .09em !important;
+    background-color: #BCB6B0;    
+    border-radius: 0px 5px 5px 0px;    
+    border-left: 1px solid #BCB6B0;
+    z-index: 0; 
+}
+.disabled-input.mat-form-field-appearance-outline .mat-form-field-flex {
+    padding: 0 0em 0 0.5em !important;
+}
+.disabled-input.mat-form-field-appearance-outline .mat-form-field-outline-end {
+    z-index: 55; 
+}
+
+// View profile css changes start here
+
+.capital-stock-form-label {
+    /* Body Roboto 16 Med */
+    
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    
+    padding-right: 10px;
+    /* identical to box height */
+    
+    letter-spacing: -0.356331px;
+    
+    /* Med Grey */
+    
+    color: #999999;
+}
+.property-holder {
+    display: flex;    
+    padding-bottom: 25px;
+}
+.view-field {    
+    color: #999999;
+}
+// View profile css changes ends here 

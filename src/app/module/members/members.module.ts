@@ -13,13 +13,17 @@ import { CreateMemberProfileComponent } from './container/create-member-profile/
 import { MemberSearchComponent } from './shared/member-search/member-search.component';
 import { CreateProfileComponent } from './components/create-profile/create-profile.component';
 import { DashboardComponent } from './shared/member-search/dashboard/dashboard.component';
+import { ViewProfileComponent } from './components/view-profile/view-profile.component';
+import { ViewMemberProfileComponent } from './container/view-member-profile/view-member-profile.component';
 
 @NgModule({
   declarations: [
     CreateMemberProfileComponent,
     CreateProfileComponent,
     MemberSearchComponent,
-    DashboardComponent
+    DashboardComponent,
+    ViewProfileComponent,
+    ViewMemberProfileComponent
   ],
   imports: [
     NgxMaskModule.forRoot(),

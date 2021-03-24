@@ -1,13 +1,29 @@
 .header {
-	width: auto;
-	height: 100px;
 	background: #f2f0ef;
-	display: flex;
-	flex-direction: column;
+}
+.header a.menu-list-item {
+	/* Body Roboto 16 Regular */
+	font-family: Roboto;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 16px;
+	line-height: 19px;
+	/* identical to box height */
+	text-align: right;
+	letter-spacing: -0.356331px;
+	/* Med Brown */
+	color: #867870;
+}
+.header-auto-spacer {
+	flex: 1 1 auto;
+}
+.material-icons.md-36 { 
+	font-size: 36px;   
+	top: -9px; 
 }
 .mat-toolbar-row {
     height: 100px;
-    display: contents;
+    // display: contents;	
 }
 .cap-stock-title {
 	position: absolute;
