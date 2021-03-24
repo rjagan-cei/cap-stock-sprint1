@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatAccordion } from '@angular/material/expansion';
-import { booleanArray, statusCodeArray, statusTypeArray } from 'src/app/shared/model/const';
+import { booleanArray, memberNamePattern, statusCodeArray, statusTypeArray } from 'src/app/shared/model/const';
 
 @Component({
   selector: 'app-create-member',
@@ -15,16 +15,40 @@ export class CreateProfileComponent implements OnInit {
   booleanArray = booleanArray;
   accordionAction: String = "Expand all";
 
+  @Input() searchResults : any;
+
   @Input() errorMessage: string;
   @Input() memberForm: FormGroup;
-  @Output() submit: EventEmitter<any> = new EventEmitter();
+  @Output() profileFormsubmit: EventEmitter<any> = new EventEmitter();
 
   @ViewChild('resetMemberForm') resetForm: any;
 
-  constructor() { }
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
-    
+    console.log(this.searchResults);
+  }
+
+  fetchEvent(event: any) {
+    this.searchResults = event;
+    console.log("presentation ->" + this.searchResults);
+    this.memberForm = this.formBuilder.group({
+      memberNumber: [this.searchResults.memberNumber],
+      memberName: [this.searchResults.memberName, [Validators.required, Validators.pattern(memberNamePattern)]],
+      statusCode: ['', [Validators.required]],
+      statusType: ['', [Validators.required]],
+      initialStockPurchaseRequired: [{ value: this.searchResults.initialStockPurchaseRequired, disabled: true }],
+      capitalStockAsset: ['', [Validators.required]],
+      capitalStockAssetDate: ['', [Validators.required]],
+      pendingStockAsset: [''],
+      pendingStockAssetDate: ['', [Validators.required]],
+      memberStockAssetDate: [''],
+      memberDdaAccount: [{ value: this.searchResults.memberDdaAccount, disabled: true }],
+      mrcs: [''],
+      mrcsInputDate: [''],
+      mrcsRedemptionDate: [''],
+      memberStockMaxRequirement: ['']
+    }) 
   }
 
   /* Date */
@@ -41,9 +65,9 @@ export class CreateProfileComponent implements OnInit {
   }
 
   submitMemberForm() {
-    if (this.memberForm.valid) {
-      this.submit.emit(this.memberForm);
-    }
+    //if (this.memberForm.valid) {
+      this.profileFormsubmit.emit(this.memberForm);
+    //}
   }
 
   toggleAccordionPanel(e: any) {
