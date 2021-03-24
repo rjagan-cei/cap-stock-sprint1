@@ -40,6 +40,8 @@ export class MemberService {
   }
 
   searchMember(memberNumber): Observable<any> {
+    this.baseURL = 'http://localhost:3000/members';
+    console.log(`${this.baseURL}?memberNumber=${memberNumber}`);
     return this.httpClient.get(`${this.baseURL}?memberNumber=${memberNumber}`);
   }
 }

@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { MatAccordion } from '@angular/material/expansion';
+import { booleanArray, statusCodeArray, statusTypeArray } from 'src/app/shared/model/const';
 
 @Component({
   selector: 'app-create-member',
@@ -9,7 +10,9 @@ import { MatAccordion } from '@angular/material/expansion';
 })
 export class CreateProfileComponent implements OnInit {
   @ViewChild(MatAccordion) accordion: MatAccordion;
-  StatusArray = [];
+  statusCodeArray = statusCodeArray;
+  statusTypeArray = statusTypeArray;
+  booleanArray = booleanArray;
   accordionAction: String = "Expand all";
 
   @Input() errorMessage: string;
@@ -21,7 +24,7 @@ export class CreateProfileComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.StatusArray = [{ "id": 1, "name": "Active" }, { "id": 2, "name": "Inactive" }, { "id": 3, "name": "Pending" }];
+    
   }
 
   /* Date */

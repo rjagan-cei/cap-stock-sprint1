@@ -2,6 +2,7 @@ import { Component, NgZone, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
+import { memberNamePattern } from 'src/app/shared/model/const';
 import { MemberService } from '../../service/member.service';
 
 @Component({
@@ -27,19 +28,21 @@ export class CreateMemberProfileComponent implements OnInit, OnDestroy {
 
   createMemberForm() {
     this.memberForm = this.formBuilder.group({
-      memberName: ['', [Validators.required]],
-      status: ['', [Validators.required]],
-      stockMembershipDate: ['', [Validators.required]],
-      financialDataDate: ['', [Validators.required]],
-      totalAssets: ['', [Validators.required]],
-      electedAssets: ['', [Validators.required]],
-      membershipRepurchaseFlag: [{value: 'Yes', disabled: true}],
-      membershipRedemptionFlag: [{value: 'No', disabled: true}],
-      activityRepurchaseFlag: [{value: 'Yes', disabled: true}],
-      activityRedemptionFlag: [{value: 'No', disabled: true}],
-      activityAccount: [{value: '000 001 010 011', disabled: true}],
-      dividendAccount: [{value: '100 101 110 111', disabled: true}],
-      ddaAccount: [{value: '200 201 210 211', disabled: true}],
+      memberNumber: [''],
+      memberName: ['', [Validators.required, Validators.pattern(memberNamePattern)]],
+      statusCode: ['', [Validators.required]],
+      statusType: ['', [Validators.required]],
+      initialStockPurchaseRequired: [{ value: 'Yes', disabled: true }],
+      capitalStockAsset: ['', [Validators.required]],
+      capitalStockAssetDate: ['', [Validators.required]],
+      pendingStockAsset: [''],
+      pendingStockAssetDate: ['', [Validators.required]],
+      memberStockAssetDate: [''],
+      memberDdaAccount: [{ value: '000 01 10 11', disabled: true }],
+      mrcs: [''],
+      mrcsInputDate: [''],
+      mrcsRedemptionDate: [''],
+      memberStockMaxRequirement: ['']
     })
   }
 

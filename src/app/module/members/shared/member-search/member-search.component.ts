@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { memberNamePattern } from 'src/app/shared/model/const';
 import { MemberService } from '../../service/member.service';
 
 @Component({
@@ -13,6 +14,7 @@ export class MemberSearchComponent implements OnInit {
   }
 
   searchForm: FormGroup;
+  searchResults$: any;
   errorMessage: String;
 
   ngOnInit(): void {
@@ -21,7 +23,7 @@ export class MemberSearchComponent implements OnInit {
 
   createSearchForm() {
     this.searchForm = this.formBuilder.group({
-      memberNumber: ['', [Validators.required]]
+      memberNumber: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(4)]]
     })
   }
 
@@ -31,8 +33,11 @@ export class MemberSearchComponent implements OnInit {
   }
 
   submitMemberSearchForm() {
-    this.memberService.searchMember(this.searchForm.value)
-      .subscribe(() => {},
+    this.memberService.searchMember(this.searchForm.value.memberNumber)
+      .subscribe((data) => {
+        this.searchResults$ = data[0];
+        console.log("Member Search Results -> " + this.searchResults$);
+      },
         error => {
           this.errorMessage = error;
         });
