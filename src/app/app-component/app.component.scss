@@ -2,20 +2,23 @@
     display: flex;
     flex-direction: row;
     background: #f2f0ef;
+    height: auto;
 }
 .sidenav {
-    height: 1500px;
+    /*height: 1500px;*/
     left: 0px;
     top: 100px;
     background: #f2f0ef;
     display: flex;
     flex-direction: row;
+    width:20%;
 }
 .content {
     padding: 10px;
     border-top-left-radius: 25px;
     background: white;
     box-shadow: 18px 22px 16px 23px rgb(31 73 125 / 30%);
+    width:80%;
 }
 .side-menu {
     width: 100%;
