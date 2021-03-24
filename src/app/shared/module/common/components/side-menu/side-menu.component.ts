@@ -32,29 +32,29 @@ export class SideMenuComponent implements AfterViewInit {
         {
           displayName: "View Member Profile",
           iconName: "fingerprint",
-          route: "/list-members"
+          route: "/view-member-profile"
         },
         {
           displayName: "Create Member Summary",
           iconName: "lightbulb",
-          route: "/dashboard"
+          route: "/create-member-summary"
         },
         {
           displayName: "View Member Summary",
           iconName: "supervisor_account",
-          route: "/dashboard"
+          route: "/view-member-summary"
         }
       ]
     },
     {
       displayName: "Global Profile",
       iconName: "visibility",
-      route: "/dashboard"
+      route: "/global-profile"
     },
     {
       displayName: "Mergers",
       iconName: "person",
-      route: "/dashboard"
+      route: "/mergers"
     }
   ];
 

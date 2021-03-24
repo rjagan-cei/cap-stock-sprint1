@@ -12,12 +12,14 @@ import { MemberService } from './service/member.service';
 import { CreateMemberProfileComponent } from './container/create-member-profile/create-member-profile.component';
 import { MemberSearchComponent } from './shared/member-search/member-search.component';
 import { CreateProfileComponent } from './components/create-profile/create-profile.component';
+import { DashboardComponent } from './shared/member-search/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     CreateMemberProfileComponent,
     CreateProfileComponent,
-    MemberSearchComponent
+    MemberSearchComponent,
+    DashboardComponent
   ],
   imports: [
     NgxMaskModule.forRoot(),
