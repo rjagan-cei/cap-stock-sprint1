@@ -35,10 +35,13 @@ export class MemberSearchComponent implements OnInit {
     return this.searchForm.controls[controlName].hasError(errorName);
   }
 
-  searchMemberForm() {
+  submitMemberSearchForm() {
+    
     this.memberService.searchMember(this.searchForm.value.memberNumber)
-      .subscribe((data: any) => {
-        this.searchResults.emit(data[0]);
+      .subscribe((data) => {
+        this.searchResults = data[0];
+        this.isSearched = true;
+        this.searchEmitter.emit(this.isSearched);
       },
         error => {
           this.errorMessage = error;
