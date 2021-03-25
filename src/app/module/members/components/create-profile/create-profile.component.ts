@@ -36,25 +36,17 @@ export class CreateProfileComponent implements OnInit {
       memberName: [this.searchResults.memberName, [Validators.required, Validators.pattern(memberNamePattern)]],
       statusCode: [this.searchResults.statusCode, [Validators.required]],
       statusType: [this.searchResults.statusType, [Validators.required]],
-      initialStockPurchaseRequired: [{ value: this.searchResults.initialStockPurchaseRequired, disabled: true }],
+      initialStockPurchaseRequired: [this.searchResults.initialStockPurchaseRequired ? 'Yes' : 'No'],
       capitalStockAsset: [this.searchResults.capitalStockAsset, [Validators.required]],
       capitalStockAssetDate: [this.searchResults.capitalStockAssetDate, [Validators.required]],
       pendingStockAsset: [this.searchResults.pendingStockAsset],
       pendingStockAssetDate: [this.searchResults.pendingStockAssetDate, [Validators.required]],
       memberStockAssetDate: [this.searchResults.memberStockAssetDate],
-      memberDdaAccount: [{ value: this.searchResults.memberDdaAccount, disabled: true }],
+      memberDdaAccount: [this.searchResults.memberDdaAccount],
       mrcs: [this.searchResults.mrcs],
       mrcsInputDate: [this.searchResults.mrcsInputDate],
       mrcsRedemptionDate: [this.searchResults.mrcsRedemptionDate],
       memberStockMaxRequirement: [this.searchResults.memberStockMaxRequirement]
-    })
-  }
-
-  /* Date */
-  formatDate(fieldName: string | (string | number)[], e: { target: { value: string | number | Date; }; }) {
-    var convertedDate = new Date(e.target.value).toISOString().substring(0, 10);
-    this.memberForm.get(fieldName).setValue(convertedDate, {
-      onlyself: true
     })
   }
 

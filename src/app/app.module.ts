@@ -13,7 +13,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxMaskModule } from 'ngx-mask';
 import { ToastrModule } from 'ngx-toastr';
 import { AngularMaterialModule } from './shared/module/material/material.module';
-import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { NavService } from './core/services/nav.service';
 
 @NgModule({
@@ -36,7 +35,7 @@ import { NavService } from './core/services/nav.service';
     HttpClientModule,
     BrowserAnimationsModule,
   ],
-  providers: [{ provide: MAT_DATE_LOCALE, useValue: 'en-GB' }, NavService],
+  providers: [NavService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
