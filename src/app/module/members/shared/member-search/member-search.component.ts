@@ -9,15 +9,19 @@ import { MemberService } from '../../service/member.service';
 })
 export class MemberSearchComponent implements OnInit {
 
+  constructor(private formBuilder: FormBuilder, private memberService: MemberService) {
+  }
+
+  @Input() isSearched: Boolean;
+  @Output() searchEmitter : EventEmitter<any> = new EventEmitter();
+
   searchForm: FormGroup;
   @Output() searchResults: EventEmitter<any> = new EventEmitter();
   errorMessage: String;
 
-  constructor(private formBuilder: FormBuilder, private memberService: MemberService) {
-  }
-
   ngOnInit(): void {
     this.createSearchForm();
+    console.log(this.isSearched);
   }
 
   createSearchForm() {

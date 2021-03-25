@@ -6,7 +6,7 @@
 <mat-card>
     <mat-card-content>
         <!-- Member search form -->
-        <app-member-search></app-member-search>
+        <app-member-search [isSearched]="isSearched" (searchEmitter)="searchEmitter($event)"></app-member-search>
         <div class="property-holder">
             <mat-label class="capital-stock-form-label">Member Number:</mat-label>
             <div class="view-field" matInput id="memberName"> 001234 </div>
