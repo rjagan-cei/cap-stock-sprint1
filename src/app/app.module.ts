@@ -14,6 +14,7 @@ import { NgxMaskModule } from 'ngx-mask';
 import { ToastrModule } from 'ngx-toastr';
 import { AngularMaterialModule } from './shared/module/material/material.module';
 import { NavService } from './core/services/nav.service';
+import { ConfirmationDialog } from './shared/module/common/components/confirmation-dialog/confirmation-dialog.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { NavService } from './core/services/nav.service';
     SideMenuComponent,
     FooterComponent,
     MenuListItemComponent,
+    ConfirmationDialog,
   ],
   imports: [
     BrowserModule,
