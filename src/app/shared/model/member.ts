@@ -1,18 +1,19 @@
 import { Base } from "./base";
 
 export class Member extends Base {
+    memberNumber: Number;
     memberName: String;
-    status: String;
+    statusCode: String;
     statusType: String;
-    stockMembershipDate: Date;
-    financialDataDate: Date;
-    totalAssets: Number;
-    electedAssets: Number;
-    membershipRepurchaseFlag: Boolean;
-    membershipRedemptionFlag: Boolean;
-    activityRepurchaseFlag: Boolean;
-    activityRedemptionFlag: Boolean;
-    activityAccount: Number;
-    dividendAccount: Number;
-    ddaAccount: Number;
+    initialStockPurchaseRequired: Boolean;
+    capitalStockAsset: Date;
+    capitalStockAssetDate: Date;
+    pendingStockAsset: Number;
+    pendingStockAssetDate: Date;
+    memberStockAssetDate: Date;
+    memberDdaAccount: Number;
+    mrcs: Boolean;
+    mrcsInputDate: Date;
+    mrcsRedemptionDate: Date;
+    memberStockMaxRequirement: Boolean;
 }

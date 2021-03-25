@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatAccordion } from '@angular/material/expansion';
-import { booleanArray, statusCodeArray, statusTypeArray } from 'src/app/shared/model/const';
+import { booleanArray, memberNamePattern, statusCodeArray, statusTypeArray } from 'src/app/shared/model/const';
 
 @Component({
   selector: 'app-create-member',
@@ -9,29 +9,44 @@ import { booleanArray, statusCodeArray, statusTypeArray } from 'src/app/shared/m
   styleUrls: ['./create-profile.component.scss']
 })
 export class CreateProfileComponent implements OnInit {
+
   @ViewChild(MatAccordion) accordion: MatAccordion;
   statusCodeArray = statusCodeArray;
   statusTypeArray = statusTypeArray;
   booleanArray = booleanArray;
   accordionAction: String = "Expand all";
 
+  @Input() searchResults: any;
+
   @Input() errorMessage: string;
   @Input() memberForm: FormGroup;
-  @Output() submit: EventEmitter<any> = new EventEmitter();
-
+  @Output() profileFormsubmit: EventEmitter<any> = new EventEmitter();
   @ViewChild('resetMemberForm') resetForm: any;
 
-  constructor() { }
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
-    
+
   }
 
-  /* Date */
-  formatDate(fieldName: string | (string | number)[], e: { target: { value: string | number | Date; }; }) {
-    var convertedDate = new Date(e.target.value).toISOString().substring(0, 10);
-    this.memberForm.get(fieldName).setValue(convertedDate, {
-      onlyself: true
+  fetchEvent(event: any) {
+    this.searchResults = event;
+    this.memberForm = this.formBuilder.group({
+      memberNumber: [this.searchResults.memberNumber],
+      memberName: [this.searchResults.memberName, [Validators.required, Validators.pattern(memberNamePattern)]],
+      statusCode: [this.searchResults.statusCode, [Validators.required]],
+      statusType: [this.searchResults.statusType, [Validators.required]],
+      initialStockPurchaseRequired: [this.searchResults.initialStockPurchaseRequired],
+      capitalStockAsset: [this.searchResults.capitalStockAsset, [Validators.required]],
+      capitalStockAssetDate: [this.searchResults.capitalStockAssetDate, [Validators.required]],
+      pendingStockAsset: [this.searchResults.pendingStockAsset],
+      pendingStockAssetDate: [this.searchResults.pendingStockAssetDate, [Validators.required]],
+      memberStockAssetDate: [this.searchResults.memberStockAssetDate],
+      memberDdaAccount: [this.searchResults.memberDdaAccount],
+      mrcs: [this.searchResults.mrcs],
+      mrcsInputDate: [this.searchResults.mrcsInputDate],
+      mrcsRedemptionDate: [this.searchResults.mrcsRedemptionDate],
+      memberStockMaxRequirement: [this.searchResults.memberStockMaxRequirement]
     })
   }
 
@@ -42,7 +57,7 @@ export class CreateProfileComponent implements OnInit {
 
   submitMemberForm() {
     if (this.memberForm.valid) {
-      this.submit.emit(this.memberForm);
+      this.profileFormsubmit.emit(this.memberForm);
     }
   }
 

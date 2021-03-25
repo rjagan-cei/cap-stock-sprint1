@@ -10,8 +10,7 @@
 <mat-card>
     <mat-card-content>
         <!-- Member search form -->
-        <app-member-search></app-member-search>
-
+        <app-member-search [searchResults]="searchResults" (searchResults)="fetchEvent($event)"></app-member-search>
         <!-- Create Profile form -->
         <form class="my-form" [formGroup]="memberForm" (ngSubmit)="submitMemberForm()" #resetMemberForm="ngForm"
             novalidate>
@@ -48,9 +47,13 @@
                 </mat-error>
             </mat-form-field>
 
+            {{memberForm.get('initialStockPurchaseRequired').value}}
+            {{memberForm.get('initialStockPurchaseRequired').value != ''}}
             <mat-label class="my-label">Initial Stock Purchase Required</mat-label>
-            <input class="label-field" matInput id="initialStockPurchaseRequired"
-                formControlName="initialStockPurchaseRequired" /><br /><br />
+            <div class="label-field" id="initialStockPurchaseRequired"
+                *ngIf="memberForm.get('initialStockPurchaseRequired').value != ''">
+                {{memberForm.get('initialStockPurchaseRequired').value ? 'Yes' : 'No'
+                }}</div><br />
 
             <mat-label class="my-label">Capital Stock Asset:</mat-label>
             <mat-form-field appearance="outline" class="disabled-input">
@@ -64,8 +67,7 @@
             <mat-label class="my-label">Capital Stock Asset Date:</mat-label>
             <mat-form-field appearance="outline" class="disabled-input">
                 <input matInput readonly [matDatepicker]="capitalStockDatePicker" id="capitalStockAssetDate"
-                    placeholder="mm/dd/yyyy" formControlName="capitalStockAssetDate"
-                    (dateChange)="formatDate('capitalStockAssetDate', $event)">
+                    placeholder="mm/dd/yyyy" formControlName="capitalStockAssetDate">
                 <mat-datepicker-toggle matSuffix [for]="capitalStockDatePicker"></mat-datepicker-toggle>
                 <mat-datepicker #capitalStockDatePicker></mat-datepicker>
                 <mat-error *ngIf="handleError('capitalStockAssetDate', 'required')">
@@ -85,8 +87,7 @@
             <mat-label class="my-label">Pending Stock Asset Date:</mat-label>
             <mat-form-field appearance="outline" class="disabled-input">
                 <input matInput readonly [matDatepicker]="pendingStockDatePicker" id="pendingStockAssetDate"
-                    placeholder="mm/dd/yyyy" formControlName="pendingStockAssetDate"
-                    (dateChange)="formatDate('pendingStockAssetDate', $event)">
+                    placeholder="mm/dd/yyyy" formControlName="pendingStockAssetDate">
                 <mat-datepicker-toggle matSuffix [for]="pendingStockDatePicker"></mat-datepicker-toggle>
                 <mat-datepicker #pendingStockDatePicker></mat-datepicker>
                 <mat-error *ngIf="handleError('pendingStockAssetDate', 'required')">
@@ -97,8 +98,7 @@
             <mat-label class="my-label">Member Stock Asset Date:</mat-label>
             <mat-form-field appearance="outline" class="disabled-input">
                 <input matInput readonly [matDatepicker]="memberStockDatePicker" id="memberStockAssetDate"
-                    placeholder="mm/dd/yyyy" formControlName="memberStockAssetDate"
-                    (dateChange)="formatDate('memberStockAssetDate', $event)">
+                    placeholder="mm/dd/yyyy" formControlName="memberStockAssetDate">
                 <mat-datepicker-toggle matSuffix [for]="memberStockDatePicker"></mat-datepicker-toggle>
                 <mat-datepicker #memberStockDatePicker></mat-datepicker>
                 <mat-error *ngIf="handleError('memberStockAssetDate', 'required')">
@@ -107,7 +107,8 @@
             </mat-form-field>
 
             <mat-label class="my-label">Member DDA Account:</mat-label>
-            <input class="label-field" matInput id="memberDdaAccount" formControlName="memberDdaAccount" /><br /><br />
+            <input class="label-field" [readonly]="true" matInput id="memberDdaAccount"
+                formControlName="memberDdaAccount" /><br /><br />
 
             <mat-label class="my-label">MRCS (Mandatory Redeemable Classified Stock):</mat-label>
             <mat-form-field appearance="outline" class="disabled-input">
@@ -124,8 +125,7 @@
             <mat-label class="my-label">MRCS Input Date:</mat-label>
             <mat-form-field appearance="outline" class="disabled-input">
                 <input matInput readonly [matDatepicker]="mrcsInputDatePicker" id="mrcsInputDate"
-                    placeholder="mm/dd/yyyy" formControlName="mrcsInputDate"
-                    (dateChange)="formatDate('mrcsInputDate', $event)">
+                    placeholder="mm/dd/yyyy" formControlName="mrcsInputDate">
                 <mat-datepicker-toggle matSuffix [for]="mrcsInputDatePicker"></mat-datepicker-toggle>
                 <mat-datepicker #mrcsInputDatePicker></mat-datepicker>
                 <mat-error *ngIf="handleError('mrcsInputDate', 'required')">
@@ -136,8 +136,7 @@
             <mat-label class="my-label">MRCS Redemption Date:</mat-label>
             <mat-form-field appearance="outline" class="disabled-input">
                 <input matInput readonly [matDatepicker]="mrcsRedemptionDatePicker" id="mrcsRedemptionDate"
-                    placeholder="mm/dd/yyyy" formControlName="mrcsRedemptionDate"
-                    (dateChange)="formatDate('mrcsRedemptionDate', $event)">
+                    placeholder="mm/dd/yyyy" formControlName="mrcsRedemptionDate">
                 <mat-datepicker-toggle matSuffix [for]="mrcsRedemptionDatePicker"></mat-datepicker-toggle>
                 <mat-datepicker #mrcsRedemptionDatePicker></mat-datepicker>
                 <mat-error *ngIf="handleError('mrcsRedemptionDate', 'required')">
