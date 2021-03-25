@@ -47,12 +47,11 @@
                 </mat-error>
             </mat-form-field>
 
-            {{memberForm.get('initialStockPurchaseRequired').value}}
-            {{memberForm.get('initialStockPurchaseRequired').value != ''}}
             <mat-label class="my-label">Initial Stock Purchase Required</mat-label>
+           vad {{memberForm.get('initialStockPurchaseRequired').value}}
             <div class="label-field" id="initialStockPurchaseRequired"
                 *ngIf="memberForm.get('initialStockPurchaseRequired').value != ''">
-                {{memberForm.get('initialStockPurchaseRequired').value ? 'Yes' : 'No'
+                {{memberForm.get('initialStockPurchaseRequired').value == true ? 'Yes' : 'No'
                 }}</div><br />
 
             <mat-label class="my-label">Capital Stock Asset:</mat-label>
