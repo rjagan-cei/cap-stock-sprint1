@@ -1,1 +1,0 @@
-export const CREATE_PROFILE_SAVE_DIALOG_MESSAGE = 'By Saving the member profile it will be submitted for Blind Verification. You will not be able to make any edits until verification is complete or fails';
