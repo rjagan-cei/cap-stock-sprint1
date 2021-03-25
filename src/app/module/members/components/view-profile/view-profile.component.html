@@ -1,12 +1,25 @@
 <mat-toolbar class="mat-toolbar mat-toolbar-single-row">
     <span>View Member Profile</span>
 </mat-toolbar>
-
+<div class="view-icons-holder">
+    <a href="" [class.disabled]="!isSearched">
+        <mat-icon class="material-icons view-icons" [class.disabled]="!isSearched">
+            edit_note
+        </mat-icon>
+    </a>
+    <a href="" [class.disabled]="!isSearched">
+        <mat-icon class="material-icons view-icons" [class.disabled]="!isSearched">
+            refresh
+        </mat-icon>
+    </a>
+</div>
 <!-- Form -->
 <mat-card>
+
     <mat-card-content>
         <!-- Member search form -->
-        <app-member-search [isSearched]="isSearched" (searchEmitter)="searchEmitter($event)" *ngIf="!isSearched"></app-member-search>
+        <app-member-search [isSearched]="isSearched" (searchEmitter)="searchEmitter($event)" *ngIf="!isSearched">
+        </app-member-search>
         <div class="property-holder">
             <mat-label class="capital-stock-form-label">Member Number:</mat-label>
             <div class="view-field" matInput id="memberName"> 001234 </div>

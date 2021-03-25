@@ -1,7 +1,7 @@
 <div class="search-container">
     <form class="search-form" [formGroup]="searchForm" (ngSubmit)="searchMemberForm()" #resetSearchForm="ngForm"
         novalidate>
-        <mat-label class="my-label">Member Number</mat-label>
+        <mat-label class="my-label capital-stock-form-label">Member Number</mat-label>
         <div class="search-part">
             <mat-form-field appearance="outline">
                 <mat-icon matPrefix>search</mat-icon>
@@ -14,7 +14,7 @@
                     Please provide a valid member number
                 </mat-error>
             </mat-form-field>
-            <button class="actionBtn" mat-flat-button><span>Search</span></button>
+            <button class="actionBtn" mat-flat-button [disabled]="searchForm.get('memberNumber').value.length !== 4" ><span>Search</span></button>
         </div>
     </form>
 </div>
