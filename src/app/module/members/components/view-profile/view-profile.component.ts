@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewProfileComponent implements OnInit {
 
+  isSearched : Boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  searchEmitter(searchStatus: Boolean) {
+    this.isSearched = searchStatus;
+    console.log(searchStatus);
+  }
 }

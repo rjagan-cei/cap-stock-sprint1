@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { memberNamePattern } from 'src/app/shared/model/const';
 import { MemberService } from '../../service/member.service';
@@ -13,12 +13,16 @@ export class MemberSearchComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, private memberService: MemberService) {
   }
 
+  @Input() isSearched: Boolean;
+  @Output() searchEmitter : EventEmitter<any> = new EventEmitter();
+
   searchForm: FormGroup;
   searchResults$: any;
   errorMessage: String;
 
   ngOnInit(): void {
     this.createSearchForm();
+    console.log(this.isSearched);
   }
 
   createSearchForm() {
@@ -33,9 +37,12 @@ export class MemberSearchComponent implements OnInit {
   }
 
   submitMemberSearchForm() {
+    
     this.memberService.searchMember(this.searchForm.value.memberNumber)
       .subscribe((data) => {
         this.searchResults$ = data[0];
+        this.isSearched = true;
+        this.searchEmitter.emit(this.isSearched);
         console.log("Member Search Results -> " + this.searchResults$);
       },
         error => {
