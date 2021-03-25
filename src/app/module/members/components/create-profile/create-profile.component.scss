@@ -5,16 +5,24 @@
     margin-right: 10px;
 }
 .mat-card-actions .actionBtn {
-    background-color: #BCB6B0;
+    background-color: #3A9164;
 }
 .mat-card-actions .actionBtn span {
-    color: #F2F0EF;
+    color: #FFFFFF;
+    border: 1px solid #3A9164;
+    box-sizing: border-box;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
 }
 .mat-card-actions .cancelBtn {
-    background-color: #F2F0EF;
+    background-color: #3A9164;
 }
 .mat-card-actions .cancelBtn span {
-    color: #BCB6B0;
+    color: #FFFFFF;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
 }
 .example-right-align {
     text-align: right;
