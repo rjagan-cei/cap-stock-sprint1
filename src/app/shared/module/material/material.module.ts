@@ -20,6 +20,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatCardModule } from '@angular/material/card';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
    imports: [
@@ -45,6 +46,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
       FormsModule, 
       ReactiveFormsModule,
       MatExpansionModule,
+      MatDialogModule
    ],
    exports: [
       MatButtonModule,
@@ -65,6 +67,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
       MatPaginatorModule,
       MatCardModule,
       MatExpansionModule,
+      MatDialogModule
    ],
    providers: [
       MatDatepickerModule

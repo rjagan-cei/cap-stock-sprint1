@@ -36,7 +36,7 @@ export class CreateProfileComponent implements OnInit {
       memberName: [this.searchResults.memberName, [Validators.required, Validators.pattern(memberNamePattern)]],
       statusCode: [this.searchResults.statusCode, [Validators.required]],
       statusType: [this.searchResults.statusType, [Validators.required]],
-      initialStockPurchaseRequired: [this.searchResults.initialStockPurchaseRequired ? 'Yes' : 'No'],
+      initialStockPurchaseRequired: [this.searchResults.initialStockPurchaseRequired],
       capitalStockAsset: [this.searchResults.capitalStockAsset, [Validators.required]],
       capitalStockAssetDate: [this.searchResults.capitalStockAssetDate, [Validators.required]],
       pendingStockAsset: [this.searchResults.pendingStockAsset],

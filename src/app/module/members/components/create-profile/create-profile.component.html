@@ -47,9 +47,13 @@
                 </mat-error>
             </mat-form-field>
 
+            {{memberForm.get('initialStockPurchaseRequired').value}}
+            {{memberForm.get('initialStockPurchaseRequired').value != ''}}
             <mat-label class="my-label">Initial Stock Purchase Required</mat-label>
-            <input class="label-field" [readonly]="true" matInput id="initialStockPurchaseRequired"
-                formControlName="initialStockPurchaseRequired" /><br /><br />
+            <div class="label-field" id="initialStockPurchaseRequired"
+                *ngIf="memberForm.get('initialStockPurchaseRequired').value != ''">
+                {{memberForm.get('initialStockPurchaseRequired').value ? 'Yes' : 'No'
+                }}</div><br />
 
             <mat-label class="my-label">Capital Stock Asset:</mat-label>
             <mat-form-field appearance="outline" class="disabled-input">
