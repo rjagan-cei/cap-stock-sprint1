@@ -1,10 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
 import { MatAccordion } from '@angular/material/expansion';
-import { CREATE_PROFILE_SAVE_DIALOG_MESSAGE } from 'src/app/common/dialog-message';
 import { booleanArray, memberNamePattern, statusCodeArray, statusTypeArray } from 'src/app/shared/model/const';
-import { ConfirmationDialog, ConfirmDialogModel } from 'src/app/shared/module/common/components/confirmation-dialog/confirmation-dialog.component';
 
 @Component({
   selector: 'app-create-member',
@@ -26,9 +23,10 @@ export class CreateProfileComponent implements OnInit {
   @Output() profileFormsubmit: EventEmitter<any> = new EventEmitter();
   @ViewChild('resetMemberForm') resetForm: any;
 
-  constructor(private formBuilder: FormBuilder, private dialog: MatDialog) { }
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+
   }
 
   fetchEvent(event: any) {
@@ -58,9 +56,9 @@ export class CreateProfileComponent implements OnInit {
   }
 
   submitMemberForm() {
-    //if (this.memberForm.valid) {
-      this.confirmDialog();
-    //}
+    if (this.memberForm.valid) {
+      this.profileFormsubmit.emit(this.memberForm);
+    }
   }
 
   toggleAccordionPanel(e: any) {
@@ -71,20 +69,6 @@ export class CreateProfileComponent implements OnInit {
       this.accordion.closeAll();
       this.accordionAction = "Expand All";
     }
-  }
-
-  confirmDialog(): void {
-    const dialogData = new ConfirmDialogModel(CREATE_PROFILE_SAVE_DIALOG_MESSAGE, "Save", "Cancel");
-    const dialogRef = this.dialog.open(ConfirmationDialog, {
-      maxWidth: "500px",
-      data: dialogData
-    });
-
-    dialogRef.afterClosed().subscribe(dialogResult => {
-      if(dialogResult === true) {
-        this.profileFormsubmit.emit(this.memberForm);
-      }
-    });
   }
 
 }
