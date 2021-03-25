@@ -58,9 +58,9 @@ export class CreateProfileComponent implements OnInit {
   }
 
   submitMemberForm() {
-    //if (this.memberForm.valid) {
+    if (this.memberForm.valid) {
       this.confirmDialog();
-    //}
+    }
   }
 
   toggleAccordionPanel(e: any) {

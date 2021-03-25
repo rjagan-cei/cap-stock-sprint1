@@ -3,6 +3,10 @@
 </div>
 
 <div mat-dialog-actions>
-    <button class="actionBtn" mat-flat-button (click)="onConfirm()"><span>{{goBtnText}}</span></button>
-    <button class="cancelBtn" mat-flat-button (click)="onDismiss()"><span>{{backBtnText}}</span></button>
+    <div *ngIf="proceedBtnText != ''">
+        <button class="actionBtn" mat-flat-button (click)="onConfirm()"><span>{{proceedBtnText}}</span></button>
+    </div>
+    <div *ngIf="backBtnText != ''">
+        <button class="cancelBtn" mat-flat-button (click)="onDismiss()"><span>{{backBtnText}}</span></button>
+    </div>
 </div>

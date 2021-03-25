@@ -48,8 +48,9 @@
             </mat-form-field>
 
             <mat-label class="my-label">Initial Stock Purchase Required</mat-label>
-            <div class="label-field" id="initialStockPurchaseRequired" *ngIf="memberForm.get('initialStockPurchaseRequired').value!==''">
-                {{memberForm.get('initialStockPurchaseRequired').value === true ? 'Yes' : 'No'}}             
+            <div class="label-field" id="initialStockPurchaseRequired"
+                *ngIf="memberForm.get('initialStockPurchaseRequired').value!==''">
+                {{memberForm.get('initialStockPurchaseRequired').value === true ? 'Yes' : 'No'}}
             </div><br />
 
             <mat-label class="my-label">Capital Stock Asset:</mat-label>

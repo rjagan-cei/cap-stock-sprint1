@@ -9,13 +9,13 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 export class ConfirmationDialog {
 
   confirmationMessage: String;
-  goBtnText: String;
+  proceedBtnText: String;
   backBtnText: String;
 
   constructor(public dialogRef: MatDialogRef<ConfirmationDialog>,
     @Inject(MAT_DIALOG_DATA) public data: ConfirmDialogModel) {
     this.confirmationMessage = data.message;
-    this.goBtnText = data.goBtn;
+    this.proceedBtnText = data.proceedBtn;
     this.backBtnText = data.backBtn;
   }
 
@@ -32,6 +32,7 @@ export class ConfirmationDialog {
 
 export class ConfirmDialogModel {
 
-  constructor(public message: String, public goBtn: String, public backBtn: String) {
+  constructor(public message: String, public proceedBtn?: String, public backBtn?: String) {
   }
+
 }

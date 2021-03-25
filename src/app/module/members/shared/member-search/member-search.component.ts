@@ -1,5 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { CREATE_PROFILE_SAVE_DIALOG_MESSAGE, MEMBER_NOT_FOUND_DIALOG_MESSAGE } from 'src/app/common/dialog-message';
+import { ConfirmDialogModel, ConfirmationDialog } from 'src/app/shared/module/common/components/confirmation-dialog/confirmation-dialog.component';
 import { MemberService } from '../../service/member.service';
 
 @Component({
@@ -9,19 +12,18 @@ import { MemberService } from '../../service/member.service';
 })
 export class MemberSearchComponent implements OnInit {
 
-  constructor(private formBuilder: FormBuilder, private memberService: MemberService) {
-  }
-
   @Input() isSearched: Boolean;
-  @Output() searchEmitter : EventEmitter<any> = new EventEmitter();
+  @Output() searchEmitter: EventEmitter<any> = new EventEmitter();
+  @Output() searchResults: EventEmitter<any> = new EventEmitter();
 
   searchForm: FormGroup;
-  @Output() searchResults: EventEmitter<any> = new EventEmitter();
   errorMessage: String;
+
+  constructor(private formBuilder: FormBuilder, private memberService: MemberService, private dialog: MatDialog) {
+  }
 
   ngOnInit(): void {
     this.createSearchForm();
-    console.log(this.isSearched);
   }
 
   createSearchForm() {
@@ -35,17 +37,30 @@ export class MemberSearchComponent implements OnInit {
     return this.searchForm.controls[controlName].hasError(errorName);
   }
 
-
   searchMemberForm() {
     this.memberService.searchMember(this.searchForm.value.memberNumber)
       .subscribe((data: any) => {
-      this.searchResults.emit(data[0]);
-      this.isSearched = true;
-      this.searchEmitter.emit(this.isSearched);
+        if (data.length == 0) {
+          this.errorDialog();
+        } else {
+          this.searchResults.emit(data[0]);
+          this.isSearched = true;
+          this.searchEmitter.emit(this.isSearched);
+        }
       },
-      error => {
-      this.errorMessage = error;
-      });
-    }
+        error => {
+          this.errorMessage = error;
+        });
+  }
+
+  errorDialog(): void {
+    const dialogData = new ConfirmDialogModel(MEMBER_NOT_FOUND_DIALOG_MESSAGE, "", "Close");
+    const dialogRef = this.dialog.open(ConfirmationDialog, {
+      maxWidth: "500px",
+      data: dialogData
+    });
+
+    dialogRef.afterClosed().subscribe(() => { });
+  }
 
 }
