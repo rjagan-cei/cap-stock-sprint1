@@ -6,7 +6,7 @@
             <mat-form-field appearance="outline">
                 <mat-icon matPrefix>search</mat-icon>
                 <input matInput mask="0000" placeholder="Enter member number" id="memberNumber"
-                    formControlName="memberNumber">{{searchResults}}
+                    formControlName="memberNumber">
                 <mat-error *ngIf="handleError('memberNumber', 'required')">
                     Please provide a member number
                 </mat-error>

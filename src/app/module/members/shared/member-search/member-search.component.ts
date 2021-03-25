@@ -10,8 +10,7 @@ import { MemberService } from '../../service/member.service';
 export class MemberSearchComponent implements OnInit {
 
   searchForm: FormGroup;
-  @Input() searchResults: any;
-  @Output() fetchResults: EventEmitter<any> = new EventEmitter();
+  @Output() searchResults: EventEmitter<any> = new EventEmitter();
   errorMessage: String;
 
   constructor(private formBuilder: FormBuilder, private memberService: MemberService) {
@@ -35,9 +34,7 @@ export class MemberSearchComponent implements OnInit {
   searchMemberForm() {
     this.memberService.searchMember(this.searchForm.value.memberNumber)
       .subscribe((data: any) => {
-        // call objectmapper and convert it to Member object..
-        this.searchResults = data[0];
-        this.fetchResults.emit(this.searchResults);
+        this.searchResults.emit(data[0]);
       },
         error => {
           this.errorMessage = error;

@@ -10,12 +10,10 @@
 <mat-card>
     <mat-card-content>
         <!-- Member search form -->
-        <app-member-search [searchResults]="searchResults" (fetchResults)="fetchEvent($event)"></app-member-search>
-        
+        <app-member-search [searchResults]="searchResults" (searchResults)="fetchEvent($event)"></app-member-search>
         <!-- Create Profile form -->
         <form class="my-form" [formGroup]="memberForm" (ngSubmit)="submitMemberForm()" #resetMemberForm="ngForm"
             novalidate>
-            {{searchResults}}
             <mat-label class="my-label">Member Name</mat-label>
             <mat-form-field appearance="outline" class="disabled-input">
                 <input matInput type="text" placeholder="Enter member name" id="memberName"

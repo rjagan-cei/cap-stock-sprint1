@@ -10,6 +10,7 @@ export class MemberService {
 
   headers = new HttpHeaders().set('Content-Type', 'application/json');
   baseURL: string;
+  jsonServerURL: string;
 
   constructor(private httpClient: HttpClient) { 
     this.baseURL = environment.memberApiPath;
@@ -40,7 +41,7 @@ export class MemberService {
   }
 
   searchMember(memberNumber): Observable<any> {
-    this.baseURL = 'http://localhost:3000/members';
-    return this.httpClient.get(`${this.baseURL}?memberNumber=${memberNumber}`);
+    this.jsonServerURL = `http://${window.location.hostname}:3000/members`;
+    return this.httpClient.get(`${this.jsonServerURL}?memberNumber=${memberNumber}`);
   }
 }

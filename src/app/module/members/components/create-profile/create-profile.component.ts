@@ -9,46 +9,45 @@ import { booleanArray, memberNamePattern, statusCodeArray, statusTypeArray } fro
   styleUrls: ['./create-profile.component.scss']
 })
 export class CreateProfileComponent implements OnInit {
+
   @ViewChild(MatAccordion) accordion: MatAccordion;
   statusCodeArray = statusCodeArray;
   statusTypeArray = statusTypeArray;
   booleanArray = booleanArray;
   accordionAction: String = "Expand all";
 
-  @Input() searchResults : any;
+  @Input() searchResults: any;
 
   @Input() errorMessage: string;
   @Input() memberForm: FormGroup;
   @Output() profileFormsubmit: EventEmitter<any> = new EventEmitter();
-
   @ViewChild('resetMemberForm') resetForm: any;
 
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
-    console.log(this.searchResults);
+
   }
 
   fetchEvent(event: any) {
     this.searchResults = event;
-    console.log("presentation ->" + this.searchResults);
     this.memberForm = this.formBuilder.group({
       memberNumber: [this.searchResults.memberNumber],
       memberName: [this.searchResults.memberName, [Validators.required, Validators.pattern(memberNamePattern)]],
-      statusCode: ['', [Validators.required]],
-      statusType: ['', [Validators.required]],
+      statusCode: [this.searchResults.statusCode, [Validators.required]],
+      statusType: [this.searchResults.statusType, [Validators.required]],
       initialStockPurchaseRequired: [{ value: this.searchResults.initialStockPurchaseRequired, disabled: true }],
-      capitalStockAsset: ['', [Validators.required]],
-      capitalStockAssetDate: ['', [Validators.required]],
-      pendingStockAsset: [''],
-      pendingStockAssetDate: ['', [Validators.required]],
-      memberStockAssetDate: [''],
+      capitalStockAsset: [this.searchResults.capitalStockAsset, [Validators.required]],
+      capitalStockAssetDate: [this.searchResults.capitalStockAssetDate, [Validators.required]],
+      pendingStockAsset: [this.searchResults.pendingStockAsset],
+      pendingStockAssetDate: [this.searchResults.pendingStockAssetDate, [Validators.required]],
+      memberStockAssetDate: [this.searchResults.memberStockAssetDate],
       memberDdaAccount: [{ value: this.searchResults.memberDdaAccount, disabled: true }],
-      mrcs: [''],
-      mrcsInputDate: [''],
-      mrcsRedemptionDate: [''],
-      memberStockMaxRequirement: ['']
-    }) 
+      mrcs: [this.searchResults.mrcs],
+      mrcsInputDate: [this.searchResults.mrcsInputDate],
+      mrcsRedemptionDate: [this.searchResults.mrcsRedemptionDate],
+      memberStockMaxRequirement: [this.searchResults.memberStockMaxRequirement]
+    })
   }
 
   /* Date */
@@ -65,9 +64,9 @@ export class CreateProfileComponent implements OnInit {
   }
 
   submitMemberForm() {
-    //if (this.memberForm.valid) {
+    if (this.memberForm.valid) {
       this.profileFormsubmit.emit(this.memberForm);
-    //}
+    }
   }
 
   toggleAccordionPanel(e: any) {

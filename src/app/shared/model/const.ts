@@ -1,4 +1,4 @@
-export const memberNamePattern = "^[a-zA-Z0-9]{10}$";
+export const memberNamePattern = "^[a-zA-Z0-9- ]+$";
 
 export const booleanArray = [
     {
