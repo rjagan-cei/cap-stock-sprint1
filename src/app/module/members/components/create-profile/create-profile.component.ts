@@ -4,7 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatAccordion } from '@angular/material/expansion';
 import { CREATE_PROFILE_SAVE_DIALOG_MESSAGE } from 'src/app/common/dialog-message';
 import { booleanArray, memberNamePattern, statusCodeArray, statusTypeArray } from 'src/app/shared/model/const';
-import { ConfirmationDialog, ConfirmDialogModel } from 'src/app/shared/module/common/components/confirmation-dialog/confirmation-dialog.component';
+import { ConfirmDialogModel, ConfirmationDialog } from 'src/app/shared/module/common/components/confirmation-dialog/confirmation-dialog.component';
 
 @Component({
   selector: 'app-create-member',
