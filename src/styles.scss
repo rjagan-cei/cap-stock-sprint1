@@ -60,15 +60,23 @@ mat-expansion-panel-header#mat-expansion-panel-header-4 {
 .mat-expansion-panel-body {
     padding: 10px 20px 20px 10px !important;
 }
+.mat-form-field {
+    line-height: inherit !important;
+}
 .mat-form-field-appearance-outline .mat-form-field-outline {
     background-color: #ffffff;
     border-radius: 5px;
+}
+.mat-form-field-infix {
+    padding: .5em 0 !important;
+    border-top: .475em solid transparent !important;
 }
 .mat-form-field-appearance-outline .mat-form-field-infix {
     padding: 0.5em 0 0.5em 0 !important;
 }
 .mat-form-field-appearance-outline .mat-form-field-flex {
     width: 225px !important;
+    padding: 0 0 0 .75em !important;
 }
 .mat-expansion-panel {
     margin: 0px 20px !important;
@@ -87,17 +95,46 @@ mat-expansion-panel-header#mat-expansion-panel-header-4 {
     font-size: 8px;
 }
 .disabled-input.mat-form-field-appearance-outline .mat-form-field-prefix, .mat-form-field-appearance-outline .mat-form-field-suffix {
-    top: .09em !important;
-    background-color: #BCB6B0;    
+    background-color: #3A9164;    
     border-radius: 0px 5px 5px 0px;    
-    border-left: 1px solid #BCB6B0;
+    border-bottom: 1px solid #3A9164;
     z-index: 0; 
+}
+.mat-form-field-appearance-outline .mat-select-arrow-wrapper {
+    transform: none !important;
 }
 .disabled-input.mat-form-field-appearance-outline .mat-form-field-flex {
     padding: 0 0em 0 0.5em !important;
 }
 .disabled-input.mat-form-field-appearance-outline .mat-form-field-outline-end {
     z-index: 55; 
+}
+.mat-datepicker-toggle {
+    color: #FFFFFF;
+}
+/* default and hover color */
+.mat-form-field-appearance-outline .mat-form-field-outline {
+    color: #3A9164;
+    border-radius: 1px solid #3A9164;
+}
+/* focused color */
+.mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: #3A9164 !important;
+}
+/* floating label color */
+.mat-form-field-appearance-outline.mat-focused .mat-form-field-label { 
+    color: #3A9164 !important; 
+}
+.mat-error {
+    font-size: 12px !important;
+    margin: 0 !important;
+    top: 0 !important;
+}
+.mat-form-field-subscript-wrapper {
+    margin-top: 0 !important;
+}
+.mat-form-field-appearance-outline .mat-form-field-subscript-wrapper {
+    padding: 0 !important;
 }
 
 // View profile css changes start here

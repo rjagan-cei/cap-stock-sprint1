@@ -5,7 +5,7 @@ export class Member extends Base {
     memberName: String;
     statusCode: String;
     statusType: String;
-    initialStockPurchaseRequired: Boolean;
+    initialStockPurchaseRequired: Number;
     capitalStockAsset: Date;
     capitalStockAssetDate: Date;
     pendingStockAsset: Number;
