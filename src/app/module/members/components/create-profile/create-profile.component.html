@@ -12,10 +12,10 @@
         <!-- Member search form -->
         <app-member-search [searchResults]="searchResults" (searchResults)="fetchEvent($event)"></app-member-search>
         <!-- Create Profile form -->
-        <form class="my-form" [formGroup]="memberForm" (ngSubmit)="submitMemberForm()" #resetMemberForm="ngForm"
+        <form class="my-form" [formGroup]="memberForm" (ngSubmit)="submitMemberForm()"
             novalidate>
             <mat-label class="my-label">Member Name</mat-label>
-            <mat-form-field appearance="outline" class="disabled-input">
+            <mat-form-field appearance="outline">
                 <input matInput type="text" placeholder="Enter member name" id="memberName"
                     formControlName="memberName">
                 <mat-error *ngIf="handleError('memberName', 'required')">
@@ -24,7 +24,7 @@
             </mat-form-field>
 
             <mat-label class="my-label">Status Code</mat-label>
-            <mat-form-field appearance="outline" class="disabled-input">
+            <mat-form-field appearance="outline">
                 <mat-select placeholder="Select" id="statusCode" formControlName="statusCode">
                     <mat-option [value]="codeArr.name" *ngFor="let codeArr of statusCodeArray">
                         {{codeArr.name}}
@@ -36,7 +36,7 @@
             </mat-form-field>
 
             <mat-label class="my-label">Status Type:</mat-label>
-            <mat-form-field appearance="outline" class="disabled-input">
+            <mat-form-field appearance="outline">
                 <mat-select class="status" placeholder="Select" id="statusType" formControlName="statusType">
                     <mat-option [value]="typeArr.name" *ngFor="let typeArr of statusTypeArray">
                         {{typeArr.name}}
@@ -48,13 +48,11 @@
             </mat-form-field>
 
             <mat-label class="my-label">Initial Stock Purchase Required</mat-label>
-            <div class="label-field" id="initialStockPurchaseRequired"
-                *ngIf="memberForm.get('initialStockPurchaseRequired').value!==''">
-                {{memberForm.get('initialStockPurchaseRequired').value === true ? 'Yes' : 'No'}}
-            </div><br />
+            <input class="label-field" mask="separator.2" prefix="$" thousandSeparator="," separatorLimit="1000000000" [readonly]="true" matInput id="initialStockPurchaseRequired"
+                formControlName="initialStockPurchaseRequired" /><br /><br />
 
             <mat-label class="my-label">Capital Stock Asset:</mat-label>
-            <mat-form-field appearance="outline" class="disabled-input">
+            <mat-form-field appearance="outline">
                 <input matInput mask="separator.2" prefix="$" thousandSeparator="," separatorLimit="1000000000"
                     placeholder="0.00" id="capitalStockAsset" formControlName="capitalStockAsset">
                 <mat-error *ngIf="handleError('capitalStockAsset', 'required')">
@@ -63,7 +61,7 @@
             </mat-form-field>
 
             <mat-label class="my-label">Capital Stock Asset Date:</mat-label>
-            <mat-form-field appearance="outline" class="disabled-input">
+            <mat-form-field appearance="outline">
                 <input matInput readonly [matDatepicker]="capitalStockDatePicker" id="capitalStockAssetDate"
                     placeholder="mm/dd/yyyy" formControlName="capitalStockAssetDate">
                 <mat-datepicker-toggle matSuffix [for]="capitalStockDatePicker"></mat-datepicker-toggle>
@@ -74,7 +72,7 @@
             </mat-form-field>
 
             <mat-label class="my-label">Pending Stock Asset:</mat-label>
-            <mat-form-field appearance="outline" class="disabled-input">
+            <mat-form-field appearance="outline">
                 <input matInput mask="separator.2" prefix="$" thousandSeparator="," separatorLimit="1000000000"
                     placeholder="0.00" id="pendingStockAsset" formControlName="pendingStockAsset">
                 <mat-error *ngIf="handleError('pendingStockAsset', 'required')">
@@ -83,7 +81,7 @@
             </mat-form-field>
 
             <mat-label class="my-label">Pending Stock Asset Date:</mat-label>
-            <mat-form-field appearance="outline" class="disabled-input">
+            <mat-form-field appearance="outline">
                 <input matInput readonly [matDatepicker]="pendingStockDatePicker" id="pendingStockAssetDate"
                     placeholder="mm/dd/yyyy" formControlName="pendingStockAssetDate">
                 <mat-datepicker-toggle matSuffix [for]="pendingStockDatePicker"></mat-datepicker-toggle>
@@ -94,7 +92,7 @@
             </mat-form-field>
 
             <mat-label class="my-label">Member Stock Asset Date:</mat-label>
-            <mat-form-field appearance="outline" class="disabled-input">
+            <mat-form-field appearance="outline">
                 <input matInput readonly [matDatepicker]="memberStockDatePicker" id="memberStockAssetDate"
                     placeholder="mm/dd/yyyy" formControlName="memberStockAssetDate">
                 <mat-datepicker-toggle matSuffix [for]="memberStockDatePicker"></mat-datepicker-toggle>
@@ -109,7 +107,7 @@
                 formControlName="memberDdaAccount" /><br /><br />
 
             <mat-label class="my-label">MRCS (Mandatory Redeemable Classified Stock):</mat-label>
-            <mat-form-field appearance="outline" class="disabled-input">
+            <mat-form-field appearance="outline">
                 <mat-select placeholder="Select" id="mrcs" formControlName="mrcs">
                     <mat-option [value]="arr.name" *ngFor="let arr of booleanArray">
                         {{arr.name}}
@@ -121,7 +119,7 @@
             </mat-form-field>
 
             <mat-label class="my-label">MRCS Input Date:</mat-label>
-            <mat-form-field appearance="outline" class="disabled-input">
+            <mat-form-field appearance="outline">
                 <input matInput readonly [matDatepicker]="mrcsInputDatePicker" id="mrcsInputDate"
                     placeholder="mm/dd/yyyy" formControlName="mrcsInputDate">
                 <mat-datepicker-toggle matSuffix [for]="mrcsInputDatePicker"></mat-datepicker-toggle>
@@ -132,7 +130,7 @@
             </mat-form-field>
 
             <mat-label class="my-label">MRCS Redemption Date:</mat-label>
-            <mat-form-field appearance="outline" class="disabled-input">
+            <mat-form-field appearance="outline">
                 <input matInput readonly [matDatepicker]="mrcsRedemptionDatePicker" id="mrcsRedemptionDate"
                     placeholder="mm/dd/yyyy" formControlName="mrcsRedemptionDate">
                 <mat-datepicker-toggle matSuffix [for]="mrcsRedemptionDatePicker"></mat-datepicker-toggle>
@@ -143,7 +141,7 @@
             </mat-form-field>
 
             <mat-label class="my-label">Membership Stock Maximum Requirement:</mat-label>
-            <mat-form-field appearance="outline" class="disabled-input">
+            <mat-form-field appearance="outline">
                 <mat-select placeholder="Select" id="memberStockMaxRequirement"
                     formControlName="memberStockMaxRequirement">
                     <mat-option [value]="arr.name" *ngFor="let arr of booleanArray">
@@ -158,7 +156,7 @@
             <mat-card-actions>
                 <button class="actionBtn" mat-flat-button><span>Save</span></button>
                 <span class="button-spacer"></span>
-                <button class="cancelBtn" mat-flat-button (click)="this.resetForm.reset()"><span>Cancel</span></button>
+                <button class="cancelBtn" mat-flat-button (click)="onCancel()"><span>Cancel</span></button>
             </mat-card-actions>
         </form>
     </mat-card-content>

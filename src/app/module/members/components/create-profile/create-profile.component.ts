@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Location } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
 import { MatAccordion } from '@angular/material/expansion';
 import { CREATE_PROFILE_SAVE_DIALOG_MESSAGE } from 'src/app/common/dialog-message';
@@ -20,13 +21,11 @@ export class CreateProfileComponent implements OnInit {
   accordionAction: String = "Expand all";
 
   @Input() searchResults: any;
-
   @Input() errorMessage: string;
   @Input() memberForm: FormGroup;
   @Output() profileFormsubmit: EventEmitter<any> = new EventEmitter();
-  @ViewChild('resetMemberForm') resetForm: any;
 
-  constructor(private formBuilder: FormBuilder, private dialog: MatDialog) { }
+  constructor(private formBuilder: FormBuilder, private dialog: MatDialog, private _location: Location) { }
 
   ngOnInit(): void {
   }
@@ -71,6 +70,11 @@ export class CreateProfileComponent implements OnInit {
       this.accordion.closeAll();
       this.accordionAction = "Expand All";
     }
+  }
+
+  onCancel() {
+    this.memberForm.reset();
+    this._location.back();
   }
 
   confirmDialog(): void {
