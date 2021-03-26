@@ -17,7 +17,18 @@
       border-radius: 6px;
     }
   }
+  .child-menu.active {
+    color: red !important;
+    background-color:transparent !important;
+    box-shadow: none !important;
+    border-radius: 0px i !important;
+  }
+  .child-menu.active span.menu-name {
+    color: #BCB6B0 !important;
+  }
 }
+
+
 .mat-list-item {
   display: flex;
   width: auto;
