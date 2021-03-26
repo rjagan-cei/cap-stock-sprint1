@@ -2,7 +2,7 @@
   [ngClass]="{'active': item.route ? router.isActive(item.route, true): false, 'expanded': expanded}"
   class="menu-list-item" [class.active]="item">
   <mat-icon class="routeIcon">{{item.iconName}}</mat-icon>
-  {{item.displayName}}
+  <span class="menu-name">{{item.displayName}}</span>
   <span fxFlex *ngIf="item.children && item.children.length">
     <mat-icon id="accordion-icon" [@indicatorRotate]="expanded ? 'expanded' : 'collapsed'">
       arrow_drop_down

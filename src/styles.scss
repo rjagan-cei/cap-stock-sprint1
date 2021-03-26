@@ -19,7 +19,8 @@ body {
     line-height: 32px;
     letter-spacing: -0.356331px;
 }
-.mat-toolbar-row, .mat-toolbar-single-row {
+.mat-toolbar-row,
+.mat-toolbar-single-row {
     padding: 0 20px !important;
 }
 .mat-expansion-panel-body {
@@ -68,15 +69,15 @@ mat-expansion-panel-header#mat-expansion-panel-header-4 {
     border-radius: 5px;
 }
 .mat-form-field-infix {
-    padding: .5em 0 !important;
-    border-top: .475em solid transparent !important;
+    padding: 0.5em 0 !important;
+    border-top: 0.475em solid transparent !important;
 }
 .mat-form-field-appearance-outline .mat-form-field-infix {
     padding: 0.5em 0 0.5em 0 !important;
 }
 .mat-form-field-appearance-outline .mat-form-field-flex {
     width: 225px !important;
-    padding: 0 0 0 .75em !important;
+    padding: 0 0 0 0.75em !important;
 }
 .mat-expansion-panel {
     margin: 0px 20px !important;
@@ -94,11 +95,12 @@ mat-expansion-panel-header#mat-expansion-panel-header-4 {
     top: 1px !important;
     font-size: 8px;
 }
-.disabled-input.mat-form-field-appearance-outline .mat-form-field-prefix, .mat-form-field-appearance-outline .mat-form-field-suffix {
-    background-color: #3A9164;    
-    border-radius: 0px 5px 5px 0px;    
-    border-bottom: 1px solid #3A9164;
-    z-index: 0; 
+.disabled-input.mat-form-field-appearance-outline .mat-form-field-prefix,
+.mat-form-field-appearance-outline .mat-form-field-suffix {
+    background-color: #3a9164;
+    border-radius: 0px 5px 5px 0px;
+    border-bottom: 1px solid #3a9164;
+    z-index: 0;
 }
 .mat-form-field-appearance-outline .mat-select-arrow-wrapper {
     transform: none !important;
@@ -107,23 +109,23 @@ mat-expansion-panel-header#mat-expansion-panel-header-4 {
     padding: 0 0em 0 0.5em !important;
 }
 .disabled-input.mat-form-field-appearance-outline .mat-form-field-outline-end {
-    z-index: 55; 
+    z-index: 55;
 }
 .mat-datepicker-toggle {
-    color: #FFFFFF;
+    color: #ffffff;
 }
-/* default and hover color */
+/* default and hover color
 .mat-form-field-appearance-outline .mat-form-field-outline {
-    color: #3A9164;
-    border-radius: 1px solid #3A9164;
-}
+    color: #3a9164;
+    border-radius: 1px solid #3a9164;
+}*/
 /* focused color */
 .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
-    color: #3A9164 !important;
+    color: #3a9164 !important;
 }
 /* floating label color */
-.mat-form-field-appearance-outline.mat-focused .mat-form-field-label { 
-    color: #3A9164 !important; 
+.mat-form-field-appearance-outline.mat-focused .mat-form-field-label {
+    color: #3a9164 !important;
 }
 .mat-error {
     font-size: 12px !important;
@@ -136,32 +138,49 @@ mat-expansion-panel-header#mat-expansion-panel-header-4 {
 .mat-form-field-appearance-outline .mat-form-field-subscript-wrapper {
     padding: 0 !important;
 }
-
+.mat-list-base {
+    padding-top: 15px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+}
+a.mat-list-item.mat-focus-indicator.menu-list-item.ng-tns-c157-1.expanded {
+    color: #BCB6B0 !important;
+    background-color: #867870 !important;
+    box-shadow: 2px 2px 4px rgb(188 182 176 / 60%);
+    border-radius: 6px;
+    .routeIcon {
+        margin-right: 15px;
+        color: #ffffff;
+      }
+      span.menu-name {
+        color: #ffffff;
+      }
+}
 // View profile css changes start here
 
 .capital-stock-form-label {
     /* Body Roboto 16 Med */
-    
+
     font-family: Roboto;
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
     line-height: 19px;
-    
+
     padding-right: 10px;
     /* identical to box height */
-    
+
     letter-spacing: -0.356331px;
-    
+
     /* Med Grey */
-    
+
     color: #999999;
 }
 .property-holder {
-    display: flex;    
+    display: flex;
     padding-bottom: 25px;
 }
-.view-field {    
+.view-field {
     color: #999999;
 }
-// View profile css changes ends here 
+// View profile css changes ends here

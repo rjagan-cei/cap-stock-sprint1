@@ -5,7 +5,7 @@
   width: 100%;
 
   .mat-list-item.active {
-    color: #ffffff;
+    color: #BCB6B0;
     background-color: #867870 !important;
     box-shadow: 2px 2px 4px rgb(188 182 176 / 60%);
     border-radius: 6px;
@@ -13,10 +13,9 @@
   &:hover,
   &:focus {
     > .mat-list-item:not(.expanded) {
-      background-color: #867870 !important;
       box-shadow: 2px 2px 4px rgb(188 182 176 / 60%);
       border-radius: 6px;
-    } 
+    }
   }
 }
 .mat-list-item {
@@ -25,10 +24,23 @@
 
   .routeIcon {
     margin-right: 15px;
+    color: #867870;
   }
   #accordion-icon {
     left: 140px;
     display: flex;
     position: relative;
+  }
+  span.menu-name {
+    color: #867870;
+  }
+}
+.mat-list-item.active {
+  .routeIcon {
+    margin-right: 15px;
+    color: #ffffff;
+  }
+  span.menu-name {
+    color: #ffffff;
   }
 }
