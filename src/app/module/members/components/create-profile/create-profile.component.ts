@@ -2,9 +2,12 @@ import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angu
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatAccordion } from '@angular/material/expansion';
+import { Observable } from 'rxjs';
 import { CREATE_PROFILE_SAVE_DIALOG_MESSAGE } from 'src/app/common/dialog-message';
 import { booleanArray, memberNamePattern, statusCodeArray, statusTypeArray } from 'src/app/shared/model/const';
+import { Lookup } from 'src/app/shared/model/lookup';
 import { ConfirmDialogModel, ConfirmationDialog } from 'src/app/shared/module/common/components/confirmation-dialog/confirmation-dialog.component';
+import { LookupService } from 'src/app/shared/service/lookup.service';
 
 @Component({
   selector: 'app-create-member',
@@ -26,9 +29,14 @@ export class CreateProfileComponent implements OnInit {
   @Output() profileFormsubmit: EventEmitter<any> = new EventEmitter();
   @ViewChild('resetMemberForm') resetForm: any;
 
-  constructor(private formBuilder: FormBuilder, private dialog: MatDialog) { }
+  statusCodes$: Observable<Array<Lookup>>;
+  statusTypes$: Observable<Array<Lookup>>;
+
+  constructor(private formBuilder: FormBuilder, private dialog: MatDialog, private lookupService: LookupService) { }
 
   ngOnInit(): void {
+    this.statusCodes$ = this.lookupService.statusCodes$;
+    this.statusTypes$ = this.lookupService.statusTypes$;
   }
 
   fetchEvent(event: any) {
@@ -81,7 +89,7 @@ export class CreateProfileComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(dialogResult => {
-      if(dialogResult === true) {
+      if (dialogResult === true) {
         this.profileFormsubmit.emit(this.memberForm);
       }
     });

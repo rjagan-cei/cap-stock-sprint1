@@ -15,6 +15,8 @@ import { CreateProfileComponent } from './components/create-profile/create-profi
 import { DashboardComponent } from './shared/dashboard/dashboard.component';
 import { ViewProfileComponent } from './components/view-profile/view-profile.component';
 import { ViewMemberProfileComponent } from './container/view-member-profile/view-member-profile.component';
+import { LookupService } from 'src/app/shared/service/lookup.service';
+
 
 @NgModule({
   declarations: [
@@ -36,7 +38,7 @@ import { ViewMemberProfileComponent } from './container/view-member-profile/view
     HttpClientModule,
     BrowserAnimationsModule
   ],
-  providers: [{ provide: MAT_DATE_LOCALE, useValue: 'en-GB' }, MemberService],
+  providers: [{ provide: MAT_DATE_LOCALE, useValue: 'en-GB' }, MemberService, LookupService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class MembersModule { }
