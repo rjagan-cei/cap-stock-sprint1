@@ -16,6 +16,5 @@ export class ViewProfileComponent implements OnInit {
 
   searchEmitter(searchStatus: Boolean) {
     this.isSearched = searchStatus;
-    console.log(searchStatus);
   }
 }

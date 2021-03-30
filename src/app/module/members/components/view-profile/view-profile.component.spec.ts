@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 
 import { ViewProfileComponent } from './view-profile.component';
 
@@ -19,7 +20,12 @@ describe('ViewProfileComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create the component', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should render title from span tag', () => {
+    const title = fixture.debugElement.query(By.css('span')).nativeElement;
+    expect(title.innerHTML).toBe('View Member Profile');
   });
 });

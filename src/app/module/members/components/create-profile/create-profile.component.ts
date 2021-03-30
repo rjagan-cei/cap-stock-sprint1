@@ -26,7 +26,7 @@ export class CreateProfileComponent implements OnInit {
   @Input() searchResults: any;
   @Input() errorMessage: string;
   @Input() memberForm: FormGroup;
-  @Output() profileFormsubmit: EventEmitter<any> = new EventEmitter();
+  @Output() profileFormSubmit: EventEmitter<any> = new EventEmitter();
 
   statusCodes$: Observable<Array<Lookup>>;
   statusTypes$: Observable<Array<Lookup>>;
@@ -94,7 +94,7 @@ export class CreateProfileComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(dialogResult => {
       if (dialogResult === true) {
-        this.profileFormsubmit.emit(this.memberForm);
+        this.profileFormSubmit.emit(this.memberForm);
       }
     });
   }

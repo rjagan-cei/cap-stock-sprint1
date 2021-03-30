@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { CREATE_PROFILE_SAVE_DIALOG_MESSAGE, MEMBER_NOT_FOUND_DIALOG_MESSAGE } from 'src/app/common/dialog-message';
+import { MEMBER_NOT_FOUND_DIALOG_MESSAGE } from 'src/app/common/dialog-message';
 import { ConfirmDialogModel, ConfirmationDialog } from 'src/app/shared/module/common/components/confirmation-dialog/confirmation-dialog.component';
 import { MemberService } from '../../service/member.service';
 

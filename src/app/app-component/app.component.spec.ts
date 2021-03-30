@@ -1,12 +1,18 @@
 import { TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterTestingModule } from '@angular/router/testing';
+import { AngularMaterialModule } from '../shared/module/material/material.module';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        ReactiveFormsModule,
+        AngularMaterialModule,
+        BrowserAnimationsModule
       ],
       declarations: [
         AppComponent
@@ -20,16 +26,14 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'cap-stock'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('cap-stock');
+  it('should create the app', () => {
+    const app = TestBed.createComponent(AppComponent).debugElement.componentInstance;
+    expect(app).toBeTruthy();
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('cap-stock app is running!');
+  it(`should have as title 'capital-stock'`, () => {
+    const app = TestBed.createComponent(AppComponent).debugElement.componentInstance;
+    expect(app.title).toEqual('capital-stock');
   });
+
 });
